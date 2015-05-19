@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "MagicalCreature.h"
+#import "CreatureViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property NSMutableArray *creatures;
+@property (weak, nonatomic) IBOutlet UITextField *inputCreatureName;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -16,12 +22,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Dragon *drogon = [[Dragon alloc] initWithFullName:@"Drogon" signatureClothingItem:@"Brooks Brothers Polo"];
+
+    MagicalCreature *tupac = [[MagicalCreature alloc] initWithName:@"Tupac"];
+    MagicalCreature *geasy = [[MagicalCreature alloc] initWithName:@"G-easy"];
+    MagicalCreature *dannyBrown = [[MagicalCreature alloc] initWithName:@"Danny Brown"];
+
+    self.creatures = [NSMutableArray arrayWithObjects:tupac, geasy, dannyBrown, nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onAddButtonPressed:(UIButton *)sender {
+    MagicalCreature *newCreature = [[MagicalCreature alloc] initWithName:self.inputCreatureName.text];
+    [self.creatures addObject:newCreature];
+    self.inputCreatureName.text = @"";
+    [self.tableView reloadData];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.creatures.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MagicalCreature *creature = [self.creatures objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID" forIndexPath:indexPath];
+
+    cell.textLabel.text = creature.name;
+    return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+
+    CreatureViewController *creatureVC = segue.destinationViewController;
+    creatureVC.creature = [self.creatures objectAtIndex:indexPath.row];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
 }
 
 @end
