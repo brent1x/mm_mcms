@@ -8,12 +8,15 @@
 
 #import "CreatureViewController.h"
 
-@interface CreatureViewController ()
+@interface CreatureViewController () <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *editCreatureName;
 @property (weak, nonatomic) IBOutlet UILabel *creatureNameLabel;
 @property (weak, nonatomic) IBOutlet UITextView *detailTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *creatureImage;
 @property BOOL isEditing;
+@property (weak, nonatomic) IBOutlet UITableView *accessoriesTableView;
+
 
 @end
 
@@ -51,8 +54,47 @@
     self.editCreatureName.hidden = !self.editCreatureName.hidden;
 }
 
--(void)updateTitleUsingTextField:(UITextField *)sender {
+- (void)updateTitleUsingTextField:(UITextField *)sender {
     self.navigationItem.title = sender.text;
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AccessoryCellID" forIndexPath:indexPath];
+    cell.textLabel.text = [self.creature.accessories objectAtIndex:indexPath.row];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.creature.accessories.count;
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

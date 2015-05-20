@@ -144,7 +144,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="120" y="110" width="160" height="21"/>
+                                    <rect key="frame" x="120" y="78" width="160" height="21"/>
                                 </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="brk-w8-hco">
@@ -152,15 +152,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="120" y="106" width="160" height="30"/>
+                                    <rect key="frame" x="120" y="74" width="160" height="30"/>
                                 </variation>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jRi-cM-lbv">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="163" width="240" height="265"/>
-                                </variation>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ws-kKC">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -168,25 +162,53 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="80" y="445" width="240" height="59"/>
+                                    <rect key="frame" x="91" y="108" width="240" height="59"/>
                                 </variation>
                             </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jRi-cM-lbv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="140" width="171" height="228"/>
+                                </variation>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RSU-EI-P8E">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccessoryCellID" id="JZp-d0-IPU">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JZp-d0-IPU" id="jTV-z7-Oys">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="376" width="400" height="224"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="dhf-ez-pYb" id="tyA-BT-0yT"/>
+                                    <outlet property="delegate" destination="dhf-ez-pYb" id="8uH-RE-bZx"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="eiE-uA-LCJ"/>
                                 <exclude reference="brk-w8-hco"/>
-                                <exclude reference="jRi-cM-lbv"/>
                                 <exclude reference="FNT-ws-kKC"/>
+                                <exclude reference="jRi-cM-lbv"/>
+                                <exclude reference="RSU-EI-P8E"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="eiE-uA-LCJ"/>
                                 <include reference="brk-w8-hco"/>
-                                <include reference="jRi-cM-lbv"/>
                                 <include reference="FNT-ws-kKC"/>
+                                <include reference="jRi-cM-lbv"/>
+                                <include reference="RSU-EI-P8E"/>
                             </mask>
                         </variation>
                     </view>
@@ -205,6 +227,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="accessoriesTableView" destination="RSU-EI-P8E" id="hjf-rG-aNZ"/>
                         <outlet property="creatureImage" destination="jRi-cM-lbv" id="iLW-eo-GL2"/>
                         <outlet property="creatureNameLabel" destination="eiE-uA-LCJ" id="QRk-Wl-ah0"/>
                         <outlet property="detailTextView" destination="FNT-ws-kKC" id="Ywn-pa-Zjj"/>

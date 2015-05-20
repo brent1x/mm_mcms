@@ -23,16 +23,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    MagicalCreature *tupac = [[MagicalCreature alloc] initWithName:@"Tupac" hometown:@"East Harlem"];
-    MagicalCreature *geasy = [[MagicalCreature alloc] initWithName:@"G-eazy" hometown:@"Oakland"];
-    MagicalCreature *dannyBrown = [[MagicalCreature alloc] initWithName:@"Danny Brown" hometown:@"Detroit"];
-    MagicalCreature *earlSweatshirt = [[MagicalCreature alloc] initWithName:@"Earl Sweatshirt" hometown:@"Los Angeles"];
+    MagicalCreature *tupac = [[MagicalCreature alloc] initWithName:@"Tupac" hometown:@"East Harlem" accessories:[NSMutableArray arrayWithObjects:@"Bandana", @"Crown", @"Winning smile", @"Death Row Records chain", nil]];
+    MagicalCreature *geasy = [[MagicalCreature alloc] initWithName:@"G-eazy" hometown:@"Oakland" accessories:[NSMutableArray arrayWithObjects:@"Anders' undying love", @"A chip on his shoulder", @"Denim jacket", @"Hair gel", nil]];
+    MagicalCreature *dannyBrown = [[MagicalCreature alloc] initWithName:@"Danny Brown" hometown:@"Detroit" accessories:[NSMutableArray arrayWithObjects:@"Hairpick", @"Lean", @"Bowtie", @"A contagious laugh", nil]];
+    MagicalCreature *earlSweatshirt = [[MagicalCreature alloc] initWithName:@"Earl Sweatshirt" hometown:@"Los Angeles" accessories:[NSMutableArray arrayWithObjects:@"Supreme camp hat", @"Short-sleeved collared shirts", @"Boat shoes", @"Hoodie", nil]];
 
     self.creatures = [NSMutableArray arrayWithObjects:tupac, geasy, dannyBrown, earlSweatshirt, nil];
 }
 
 - (IBAction)onAddButtonPressed:(UIButton *)sender {
-    MagicalCreature *newCreature = [[MagicalCreature alloc] initWithName:self.inputCreatureName.text hometown:nil];
+    MagicalCreature *newCreature = [[MagicalCreature alloc] initWithName:self.inputCreatureName.text hometown:nil accessories:nil];
     [self.creatures addObject:newCreature];
     self.inputCreatureName.text = @"";
     [self.tableView reloadData];

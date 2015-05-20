@@ -14,7 +14,8 @@
 @property NSString *name;
 @property NSString *hometown;
 @property UIImage *image;
+@property NSMutableArray *accessories;
 
-- (instancetype)initWithName:(NSString *)name hometown:(NSString *)hometown;
+- (instancetype)initWithName:(NSString *)name hometown:(NSString *)hometown accessories:(NSMutableArray *)accessories;
 
 @end

@@ -10,11 +10,12 @@
 
 @implementation MagicalCreature
 
-- (instancetype)initWithName:(NSString *)name hometown:(NSString *)hometown {
+- (instancetype)initWithName:(NSString *)name hometown:(NSString *)hometown accessories:(NSMutableArray *)accessories {
     self = [super init];
     self.name = name;
     self.hometown = hometown;
     self.image = [UIImage imageNamed:name];
+    self.accessories = accessories;
     return self;
 }
 
