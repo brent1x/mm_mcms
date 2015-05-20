@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840BA1A41B0C2444009B39EC /* BattleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840BA1A31B0C2444009B39EC /* BattleViewController.m */; };
 		8479ADE51B0BDCA20063F017 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479ADE41B0BDCA20063F017 /* main.m */; };
 		8479ADE81B0BDCA20063F017 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479ADE71B0BDCA20063F017 /* AppDelegate.m */; };
 		8479ADEB1B0BDCA20063F017 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8479ADEA1B0BDCA20063F017 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840BA1A21B0C2444009B39EC /* BattleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BattleViewController.h; sourceTree = "<group>"; };
+		840BA1A31B0C2444009B39EC /* BattleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BattleViewController.m; sourceTree = "<group>"; };
 		8479ADDF1B0BDCA20063F017 /* MCMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8479ADE31B0BDCA20063F017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8479ADE41B0BDCA20063F017 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				8479AE081B0BDD230063F017 /* MagicalCreature.h */,
 				8479AE091B0BDD230063F017 /* MagicalCreature.m */,
 				8479ADEC1B0BDCA20063F017 /* Main.storyboard */,
+				840BA1A21B0C2444009B39EC /* BattleViewController.h */,
+				840BA1A31B0C2444009B39EC /* BattleViewController.m */,
 				8479AE0B1B0BE4700063F017 /* CreatureViewController.h */,
 				8479AE0C1B0BE4700063F017 /* CreatureViewController.m */,
 				8479ADEF1B0BDCA20063F017 /* Images.xcassets */,
@@ -231,6 +236,7 @@
 			files = (
 				8479ADEB1B0BDCA20063F017 /* ViewController.m in Sources */,
 				8479AE0A1B0BDD230063F017 /* MagicalCreature.m in Sources */,
+				840BA1A41B0C2444009B39EC /* BattleViewController.m in Sources */,
 				8479ADE81B0BDCA20063F017 /* AppDelegate.m in Sources */,
 				8479AE0D1B0BE4700063F017 /* CreatureViewController.m in Sources */,
 				8479ADE51B0BDCA20063F017 /* main.m in Sources */,
@@ -428,6 +434,7 @@
 				8479AE041B0BDCA20063F017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8479AE051B0BDCA20063F017 /* Build configuration list for PBXNativeTarget "MCMSTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +443,7 @@
 				8479AE071B0BDCA20063F017 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

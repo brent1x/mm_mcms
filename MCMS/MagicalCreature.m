@@ -15,7 +15,11 @@
     self.name = name;
     self.hometown = hometown;
     self.image = [UIImage imageNamed:name];
+    if (self.image == nil) {
+        self.image = [UIImage imageNamed:@"Pootie"];
+    }
     self.accessories = accessories;
+
     return self;
 }
 
