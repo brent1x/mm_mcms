@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+@import UIKit;
 
 @interface MagicalCreature : NSObject
 
 @property NSString *name;
+@property NSString *hometown;
+@property UIImage *image;
 
-- (instancetype)initWithName:(NSString *)name;
+- (instancetype)initWithName:(NSString *)name hometown:(NSString *)hometown;
 
 @end

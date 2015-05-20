@@ -22,17 +22,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Dragon *drogon = [[Dragon alloc] initWithFullName:@"Drogon" signatureClothingItem:@"Brooks Brothers Polo"];
 
-    MagicalCreature *tupac = [[MagicalCreature alloc] initWithName:@"Tupac"];
-    MagicalCreature *geasy = [[MagicalCreature alloc] initWithName:@"G-easy"];
-    MagicalCreature *dannyBrown = [[MagicalCreature alloc] initWithName:@"Danny Brown"];
+    MagicalCreature *tupac = [[MagicalCreature alloc] initWithName:@"Tupac" hometown:@"East Harlem"];
+    MagicalCreature *geasy = [[MagicalCreature alloc] initWithName:@"G-eazy" hometown:@"Oakland"];
+    MagicalCreature *dannyBrown = [[MagicalCreature alloc] initWithName:@"Danny Brown" hometown:@"Detroit"];
+    MagicalCreature *earlSweatshirt = [[MagicalCreature alloc] initWithName:@"Earl Sweatshirt" hometown:@"Los Angeles"];
 
-    self.creatures = [NSMutableArray arrayWithObjects:tupac, geasy, dannyBrown, nil];
+    self.creatures = [NSMutableArray arrayWithObjects:tupac, geasy, dannyBrown, earlSweatshirt, nil];
 }
 
 - (IBAction)onAddButtonPressed:(UIButton *)sender {
-    MagicalCreature *newCreature = [[MagicalCreature alloc] initWithName:self.inputCreatureName.text];
+    MagicalCreature *newCreature = [[MagicalCreature alloc] initWithName:self.inputCreatureName.text hometown:nil];
     [self.creatures addObject:newCreature];
     self.inputCreatureName.text = @"";
     [self.tableView reloadData];
@@ -45,14 +45,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MagicalCreature *creature = [self.creatures objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellID" forIndexPath:indexPath];
-
     cell.textLabel.text = creature.name;
+    cell.detailTextLabel.text = creature.hometown;
+    cell.imageView.image = creature.image;
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UITableViewCell *)sender {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-
     CreatureViewController *creatureVC = segue.destinationViewController;
     creatureVC.creature = [self.creatures objectAtIndex:indexPath.row];
 }

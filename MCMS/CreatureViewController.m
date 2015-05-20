@@ -10,8 +10,10 @@
 
 @interface CreatureViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *editCreatureName;
-@property BOOL isEditing;
 @property (weak, nonatomic) IBOutlet UILabel *creatureNameLabel;
+@property (weak, nonatomic) IBOutlet UITextView *detailTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *creatureImage;
+@property BOOL isEditing;
 
 @end
 
@@ -25,6 +27,9 @@
     self.editCreatureName.text = self.creature.name;
 
     [self.editCreatureName addTarget:self action:@selector(updateTitleUsingTextField:) forControlEvents:UIControlEventEditingChanged];
+    self.detailTextView.text = self.creature.hometown;
+
+    self.creatureImage.image = self.creature.image;
 }
 
 - (IBAction)onEditButtonPressed:(UIButton *)sender {
